@@ -34,36 +34,23 @@ RTX 4060 Laptop GPU 在 `cheetah_dir` 环境上验证了训练流程。
 
 这些是工程兼容性调整，不涉及算法逻辑修改。
 
-## 复现中梳理的基础知识
+## 跑的过程中理解了什么
 
-- Offline RL 使用固定轨迹数据集训练策略。本项目从 `data/<env>/` 读取 `.pkl`
-  轨迹，而不是在线和环境交互采样。
-- Decision Transformer 将策略学习转成序列建模问题，输入序列包含 return、state、
-  action 和 timestep。
-- Prompt-DT 在 Decision Transformer 基础上加入 prompt trajectory。这里的 prompt
-  不是自然语言提示词，而是一段短轨迹上下文，用于让模型根据上下文适应不同任务。
-- `cheetah_dir` 是一个双任务环境：一个任务要求 HalfCheetah 向前跑，另一个任务要求
-  向后跑。同一个模型需要在两个方向任务上训练和评估。
-- 这次复现的主要难点不只在模型代码，而在 MuJoCo、gym、transformers、CUDA 版本和
-  native library path 的兼容性处理。
+跑之前我对 offline RL 的理解比较抽象。真正把数据加载和训练流程跑起来之后，
+最直观的一点是：这里的数据集是固定的。训练时程序从 `data/` 下面读取 `.pkl`
+轨迹，agent 并不会一边训练一边和环境交互采样。MuJoCo 环境主要出现在评估阶段，
+用来检查当前策略在 `cheetah_dir` 任务里的实际 return。
 
-## 能力边界
+Prompt-DT 的核心思路也比我一开始想象得更具体。它是在 Decision Transformer
+的序列输入里加入一段 demonstration trajectory，让这段轨迹告诉模型当前任务是什么。
+在 `cheetah_dir` 里，这个差别很直观：一个任务要求 HalfCheetah 向前跑，另一个任务
+要求向后跑。同一个模型看到不同的 prompt trajectory，就应该产生不同方向的动作。
 
-这次工作可以支撑的表述：
-
-- 具备 MuJoCo/mujoco-py 环境配置、Gym 风格 MuJoCo 环境运行、依赖排错和训练验证经验。
-- 具备 PyTorch GPU 训练、CUDA 兼容性排查、离线强化学习数据加载和实验记录经验。
-- 具备 Transformer policy model 或 Decision Transformer 类序列模型的训练经验。
-- 理解 Prompt-DT 中基于轨迹上下文的 in-context policy adaptation。
-
-不建议过度包装的表述：
-
-- 不建议直接写成“熟练掌握 MuJoCo 物理建模”。本项目证明的是能配置、运行和调试
-  MuJoCo 环境，不等同于已经能独立设计复杂 MuJoCo XML 或机器人动力学模型。
-- 不建议直接写成“大模型/foundation model 微调经验”。Prompt-DT 使用 Transformer
-  架构和 prompt/context 思想，但它不是 LLM，也不是通常意义上的 foundation model。
-  更准确的说法是“基于 Transformer 的策略模型训练经验”或“Decision Transformer
-  方向的离线强化学习复现经验”。
+这次复现让我跑通了 Prompt-DT 的完整训练和评估流程，也让我对 in-context decision
+making 和 trajectory prompt 作为上下文输入的思路有了更具体的理解。与此同时，我也
+清楚这和独立设计复杂 MuJoCo XML、机器人动力学模型，或者微调 LLM/foundation model
+不是同一类经验。更准确地说，这次工作是一次基于 Transformer policy model 的离线
+强化学习复现。
 
 ## 项目结构
 
@@ -137,22 +124,11 @@ results/cheetah_dir_demo/run_20260414_215515/train.log
 
 ## 本地 GPU 与云端服务器
 
-当前复现证据不需要云端服务器。本地 RTX 4060 已经完成了 2000-iteration
-`cheetah_dir` GPU 训练。
+这次实验本地 RTX 4060 就够用了，2000-iteration 的 `cheetah_dir` GPU 训练已经
+完整跑通。当前日志没有记录精确的开始和结束时间，所以这里不写具体耗时。
 
-如果目标从“本地复现证明”变成“论文级完整复现”，云端会更有价值：
-
-| 目标 | 本地 RTX 4060 | 云端 GPU |
-| --- | --- | --- |
-| smoke test | 足够 | 不需要 |
-| `cheetah_dir` 2000 iterations | 足够 | 不需要 |
-| `cheetah_dir` 5000 iterations | 大概率可以，只是等待更久 | 可选 |
-| `cheetah_vel` 单次实验 | 大概率可以 | 可选 |
-| `ant_dir` 或 MetaWorld 长时间实验 | 可以尝试，但耗时更长 | 有帮助 |
-| 多 seed 论文级表格 | 不方便 | 建议使用 |
-
-对于作品集式复现记录，本地结果足以展示环境搭建、兼容性排错、GPU 训练和结果记录。
-如果要做论文级对比，云端主要用于节省时间并降低本地中断风险。
+如果后面要做论文级复现，比如 5000 iterations、更多环境和多 seed 统计，云端 GPU
+会更合适。本地机器仍然可以继续跑，但长时间实验更容易被断电、断网或日常使用打断。
 
 ## 局限性
 
