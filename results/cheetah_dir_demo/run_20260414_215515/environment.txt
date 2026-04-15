@@ -1,0 +1,16 @@
+root=/mnt/c/Users/yangz/Desktop/GithubWorkspace/Prompt-DT
+date=2026-04-14T21:55:15+08:00
+max_iters=2000
+num_steps_per_iter=10
+num_eval_episodes=10
+device=cuda
+batch_size=16
+embed_dim=128
+n_layer=3
+n_head=1
+K=20
+prompt_length=5
+Python 3.8.5
+torch 2.3.1+cu121 cuda True
+device NVIDIA GeForce RTX 4060 Laptop GPU
+mujoco_py 2.1.2.14

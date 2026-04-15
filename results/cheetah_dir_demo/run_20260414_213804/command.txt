@@ -1,0 +1,1 @@
+python -u pdt_main.py --env cheetah_dir --max_iters 500 --num_steps_per_iter 10 --num_eval_episodes 5 --device cuda --batch_size 16 --embed_dim 128 --n_layer 3 --n_head 1 --K 20 --prompt-length 5 --train_eval_interval 250 --test_eval_interval 250 --save-interval 999999 --log_to_wandb=

@@ -1,6 +1,9 @@
-**/data/
-**/wandb/
-**/model_saved/
-**/log/
-**__
-**egg-info
+data/
+wandb/
+model_saved/
+log/
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/

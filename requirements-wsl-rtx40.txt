@@ -1,0 +1,21 @@
+# Python packages used by the WSL2 RTX 4060 reproduction environment.
+#
+# Install PyTorch separately from the official PyTorch CUDA index:
+#   python -m pip install --index-url https://download.pytorch.org/whl/cu121 torch==2.3.1
+#
+# The original repository pins torch==1.10.0 and mujoco-py==2.0.2.13. Those
+# pins are kept in requirements.txt. This file records the practical local
+# setup used to run on RTX 40-series hardware without a legacy MuJoCo 2.0 key.
+Cython==0.29.36
+gym==0.18.3
+numpy==1.20.3
+transformers==4.5.1
+wandb==0.9.1
+mujoco-py==2.1.2.14
+pygame==2.1.0
+pytest==6.2.5
+matplotlib==3.5.1
+packaging==20.9
+pyparsing==2.4.7
+imageio==2.9.0
+Pillow==8.2.0

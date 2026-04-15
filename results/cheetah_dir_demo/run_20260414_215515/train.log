@@ -1,0 +1,121 @@
+Use MOJUCO key
+pygame 2.1.0 (SDL 2.0.16, Python 3.8.5)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+/home/yang/miniforge3/envs/prompt-dt/lib/python3.8/site-packages/gym/logger.py:30: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  warnings.warn(colorize('%s: %s'%('WARN', msg % args), 'yellow'))
+Env Info: {'cheetah_dir-0': {'max_ep_len': 200, 'env_targets': [1500], 'scale': 1000.0, 'state_dim': 20, 'act_dim': 6, 'device': 'cuda'}, 'cheetah_dir-1': {'max_ep_len': 200, 'env_targets': [1500], 'scale': 1000.0, 'state_dim': 20, 'act_dim': 6, 'device': 'cuda'}}
+
+ Test Env Info: {'cheetah_dir-0': {'max_ep_len': 200, 'env_targets': [1500], 'scale': 1000.0, 'state_dim': 20, 'act_dim': 6, 'device': 'cuda'}, 'cheetah_dir-1': {'max_ep_len': 200, 'env_targets': [1500], 'scale': 1000.0, 'state_dim': 20, 'act_dim': 6, 'device': 'cuda'}}
+
+
+
+Env List: [<mujoco_control_envs.mujoco_control_envs.HalfCheetahDirEnv object at 0x72accff23310>, <mujoco_control_envs.mujoco_control_envs.HalfCheetahDirEnv object at 0x72aca570f9d0>]
+
+ Test Env List: [<mujoco_control_envs.mujoco_control_envs.HalfCheetahDirEnv object at 0x72aca570f520>, <mujoco_control_envs.mujoco_control_envs.HalfCheetahDirEnv object at 0x72aca570f100>]
+3996
+==================================================
+Starting new experiment: cheetah_dir-0 expert
+999 trajectories, 199800 timesteps found
+Average return: 666.58, std: 19.48
+Max return: 728.53, min: 581.39
+==================================================
+==================================================
+Starting new experiment: cheetah_dir-1 expert
+999 trajectories, 199800 timesteps found
+Average return: 1134.30, std: 37.11
+Max return: 1260.93, min: 997.39
+==================================================
+==================================================
+Starting new experiment: cheetah_dir-0 expert
+999 trajectories, 199800 timesteps found
+Average return: 666.58, std: 19.48
+Max return: 728.53, min: 581.39
+==================================================
+==================================================
+Starting new experiment: cheetah_dir-1 expert
+999 trajectories, 199800 timesteps found
+Average return: 1134.30, std: 37.11
+Max return: 1260.93, min: 997.39
+==================================================
+evaluate at tasks:  ['cheetah_dir-0', 'cheetah_dir-1']
+start evaluating...
+================================================================================
+Iteration 1
+test-evaluation/cheetah_dir-0_target_1500_return_mean: 4.719971049581938
+test-evaluation/cheetah_dir-0_target_1500_return_std: 4.157166945703476
+test-evaluation/cheetah_dir-1_target_1500_return_mean: -28.840030548466245
+test-evaluation/cheetah_dir-1_target_1500_return_std: 7.451995155226942
+time/evaluation: 23.115055799484253
+training/action_error: 1.090756893157959
+evaluate at tasks:  ['cheetah_dir-0', 'cheetah_dir-1']
+start evaluating...
+================================================================================
+Iteration 1
+train-evaluation/cheetah_dir-0_target_1500_return_mean: 8.073816145196819
+train-evaluation/cheetah_dir-0_target_1500_return_std: 7.11439823793746
+train-evaluation/cheetah_dir-1_target_1500_return_mean: -28.907739965091746
+train-evaluation/cheetah_dir-1_target_1500_return_std: 5.89870467373599
+time/evaluation: 22.794377326965332
+training/action_error: 1.090756893157959
+model saved to  /mnt/c/Users/yangz/Desktop/GithubWorkspace/Prompt-DT/model_saved//prompt_model_cheetah_dir_TRAIN_expert_TEST_expert_iter_0
+evaluate at tasks:  ['cheetah_dir-0', 'cheetah_dir-1']
+start evaluating...
+================================================================================
+Iteration 501
+test-evaluation/cheetah_dir-0_target_1500_return_mean: 399.4272667848535
+test-evaluation/cheetah_dir-0_target_1500_return_std: 83.32008869559667
+test-evaluation/cheetah_dir-1_target_1500_return_mean: 656.9999819133857
+test-evaluation/cheetah_dir-1_target_1500_return_std: 318.17852975503166
+time/evaluation: 22.885207414627075
+training/action_error: 0.07108879089355469
+evaluate at tasks:  ['cheetah_dir-0', 'cheetah_dir-1']
+start evaluating...
+================================================================================
+Iteration 501
+train-evaluation/cheetah_dir-0_target_1500_return_mean: 435.5158094137175
+train-evaluation/cheetah_dir-0_target_1500_return_std: 65.48170445612881
+train-evaluation/cheetah_dir-1_target_1500_return_mean: 542.3115354766418
+train-evaluation/cheetah_dir-1_target_1500_return_std: 382.0464693641556
+time/evaluation: 23.090518951416016
+training/action_error: 0.07108879089355469
+evaluate at tasks:  ['cheetah_dir-0', 'cheetah_dir-1']
+start evaluating...
+================================================================================
+Iteration 1001
+test-evaluation/cheetah_dir-0_target_1500_return_mean: 593.9126139934291
+test-evaluation/cheetah_dir-0_target_1500_return_std: 31.956548033191947
+test-evaluation/cheetah_dir-1_target_1500_return_mean: 745.8616347517147
+test-evaluation/cheetah_dir-1_target_1500_return_std: 469.4634664540034
+time/evaluation: 21.72655940055847
+training/action_error: 0.04961615055799484
+evaluate at tasks:  ['cheetah_dir-0', 'cheetah_dir-1']
+start evaluating...
+================================================================================
+Iteration 1001
+train-evaluation/cheetah_dir-0_target_1500_return_mean: 588.3747236478356
+train-evaluation/cheetah_dir-0_target_1500_return_std: 44.58107542540994
+train-evaluation/cheetah_dir-1_target_1500_return_mean: 814.0473974920217
+train-evaluation/cheetah_dir-1_target_1500_return_std: 355.4792022466192
+time/evaluation: 21.88334846496582
+training/action_error: 0.04961615055799484
+evaluate at tasks:  ['cheetah_dir-0', 'cheetah_dir-1']
+start evaluating...
+================================================================================
+Iteration 1501
+test-evaluation/cheetah_dir-0_target_1500_return_mean: 628.1492624221864
+test-evaluation/cheetah_dir-0_target_1500_return_std: 34.96653868772822
+test-evaluation/cheetah_dir-1_target_1500_return_mean: 934.357454985358
+test-evaluation/cheetah_dir-1_target_1500_return_std: 336.2689944520744
+time/evaluation: 20.95453143119812
+training/action_error: 0.04279810190200806
+evaluate at tasks:  ['cheetah_dir-0', 'cheetah_dir-1']
+start evaluating...
+================================================================================
+Iteration 1501
+train-evaluation/cheetah_dir-0_target_1500_return_mean: 644.4263315404847
+train-evaluation/cheetah_dir-0_target_1500_return_std: 26.21090532856418
+train-evaluation/cheetah_dir-1_target_1500_return_mean: 1086.590978530047
+train-evaluation/cheetah_dir-1_target_1500_return_std: 104.49702889912102
+time/evaluation: 21.061452388763428
+training/action_error: 0.04279810190200806
+model saved to  /mnt/c/Users/yangz/Desktop/GithubWorkspace/Prompt-DT/model_saved//prompt_model_cheetah_dir_TRAIN_expert_TEST_expert_iter_1999
