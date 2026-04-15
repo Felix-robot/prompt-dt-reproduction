@@ -1,18 +1,17 @@
-# Reproduction Results
+# 复现实验结果
 
-This directory stores small, text-based outputs from local reproduction runs.
+本目录保存本地复现实验产生的小型文本结果。
 
-Large generated artifacts such as datasets, Weights & Biases directories, and
-model checkpoints are intentionally ignored by `.gitignore`.
+数据集、Weights & Biases 目录和模型 checkpoint 等大文件已经通过 `.gitignore`
+排除，不会提交到仓库。
 
-Current recorded runs:
+当前记录：
 
 ```text
 smoke/
-  One-step checks for imports, MuJoCo environment creation, data loading, and a
-  minimal training pass. The directory is created only when the smoke script is
-  run.
+  导入依赖、创建 MuJoCo 环境、加载数据和最小训练流程的检查结果。
+  该目录只会在运行 smoke 脚本后生成。
 
 cheetah_dir_demo/
-  Completed local demonstration runs for the `cheetah_dir` benchmark.
+  `cheetah_dir` benchmark 的本地 demo 运行记录。
 ```
